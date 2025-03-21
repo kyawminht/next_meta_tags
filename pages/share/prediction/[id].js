@@ -36,7 +36,7 @@ export default function PredictionPage({ predictionData }) {
   // Redirect users to the actual website
   React.useEffect(() => {
     if (typeof window !== "undefined" && id) {
-      window.location.href = `https://exp-admin.nostradome.com/api/prediction/${id}`;
+      window.location.href = `https://exp.nostradome.com/api/prediction/${id}`;
     }
   }, [id]);
 
@@ -52,7 +52,7 @@ export default function PredictionPage({ predictionData }) {
         <meta property="og:title" content={predictionData.title} />
         <meta property="og:description" content={predictionData.description} />
         <meta property="og:image" content={predictionData.image} />
-        <meta property="og:url" content={`https://exp-admin.nostradome.com/api/prediction/${id}`} />
+        <meta property="og:url" content={`https://exp.nostradome.com/api/prediction/${id}`} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />

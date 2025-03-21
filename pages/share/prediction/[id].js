@@ -1,6 +1,7 @@
 import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import React from "react";
 
 // Fetch data on the server side
 export async function getServerSideProps(context) {
@@ -8,7 +9,7 @@ export async function getServerSideProps(context) {
 
   try {
     // Fetch prediction data from your API
-    const response = await axios.get(`https://exp-admin.nostradome.com/api/${id}`);
+    const response = await axios.get(`https://exp-admin.nostradome.com/api/prediction/${id}`);
     const predictionData = response.data;
     console.log("Prediction data:", response.data);
 
@@ -34,7 +35,7 @@ export default function PredictionPage({ predictionData }) {
   // Redirect users to the actual website
   React.useEffect(() => {
     if (typeof window !== "undefined") {
-      window.location.href = `https://youractualwebsite.com/prediction/${router.query.id}`;
+      window.location.href = `https://exp-admin.nostradome.com/api/prediction/${id}`;
     }
   }, [router.query.id]);
 
@@ -50,7 +51,7 @@ export default function PredictionPage({ predictionData }) {
         <meta property="og:title" content={predictionData.title} />
         <meta property="og:description" content={predictionData.description} />
         <meta property="og:image" content={predictionData.image} />
-        <meta property="og:url" content={`https://yournextjsapp.com/share/prediction/${predictionData.id}`} />
+        <meta property="og:url" content={`https://exp-admin.nostradome.com/api/prediction/${id}`} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />

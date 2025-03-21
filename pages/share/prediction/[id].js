@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
 
   try {
     // Fetch prediction data from your API
-    const response = await axios.get(`https://exp-admin.nostradome.com/api/prediction/${id}`);
+    const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
     const predictionData = response.data;
     console.log("Prediction data:", response.data);
 
@@ -31,13 +31,14 @@ export async function getServerSideProps(context) {
 // Page component
 export default function PredictionPage({ predictionData }) {
   const router = useRouter();
+  const { id } = router.query; // Access the `id` parameter from the URL
 
   // Redirect users to the actual website
   React.useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && id) {
       window.location.href = `https://exp-admin.nostradome.com/api/prediction/${id}`;
     }
-  }, [router.query.id]);
+  }, [id]);
 
   if (!predictionData) {
     return <div>Error loading prediction data.</div>;

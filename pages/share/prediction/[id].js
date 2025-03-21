@@ -52,6 +52,9 @@ export default function PredictionPage({ predictionData }) {
         <meta property="og:title" content={predictionData.title} />
         <meta property="og:description" content={predictionData.description} />
         <meta property="og:image" content={predictionData.image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         <meta property="og:url" content={`https://exp.nostradome.com/api/prediction/${id}`} />
         <meta property="og:type" content="website" />
 
@@ -59,6 +62,8 @@ export default function PredictionPage({ predictionData }) {
         <meta name="twitter:title" content={predictionData.title} />
         <meta name="twitter:description" content={predictionData.description} />
         <meta name="twitter:image" content={predictionData.image} />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
       </Head>
 
       {/* Minimal content for the page */}
